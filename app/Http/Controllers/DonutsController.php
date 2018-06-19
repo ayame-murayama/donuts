@@ -17,15 +17,16 @@ class DonutsController extends Controller
      */
     public function index()
     {
-        $data = [];
+        
         if (\Auth::check()) {
             $user = \Auth::user();
             $donuts = Donut::all();
-            $data = [
-                'donuts' => $donuts,
-            ];
+            
+        return view('donuts.index', $data);
+        
+        }else {
+            return view('welcome');
         }
-        return view('welcome', $data);
     }
 
     /**
