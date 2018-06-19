@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Donut;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $donuts = Donut::all();
+            $data = [
+                'donuts' => $donuts,
+            ];
+        }
+        return view('donuts.index', $data);
     }
 }
