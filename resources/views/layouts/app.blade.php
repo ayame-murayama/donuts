@@ -30,8 +30,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Donuts🍩') }}
+                    <a class="navbar-brand" href="{{ url('/index') }}">
+                        {{ 'Donuts' }}
                     </a>
                 </div>
 

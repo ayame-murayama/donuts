@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index', 'DonutsController@index')->name('donuts.index');
 
 Route::group(['middleware' => 'auth'], function () {
    Route::resource('donuts', 'DonutsController');

@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">MyPage</a>
+                        <a href="{{ url('/index') }}">MyPage</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -78,12 +78,18 @@
             @endif
 
             <div class="content">
+            @if (Route::has('login'))
+                @auth
                 <div class="title m-b-md">
                     Donuts🍩
                 </div>
-
-                
+                @else
+                <div class="title m-b-md">
+                    Please Login
+                </div>
+                @endauth
             </div>
+            @endif
         </div>
     </body>
 </html>

@@ -19,7 +19,9 @@
         {!! Form::text('tag') !!}<br>
         
         {!! Form::label('category', 'カテゴリー:') !!}
-        {!! Form::text('category') !!}<br>
+        {!! Form::select('category',['あ','い','う','え','お','か','き','く']) !!}
+        
+        
 
         {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}
 

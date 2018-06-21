@@ -17,15 +17,17 @@ class DonutsController extends Controller
      */
     public function index()
     {
-        
+        $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
             $donuts = Donut::all();
-            
+            $data = [
+                'donuts' => $donuts,
+            ];
         return view('donuts.index', $data);
         
         }else {
-            return view('welcome');
+            return view('welcome', $data);
         }
     }
 
@@ -63,7 +65,7 @@ class DonutsController extends Controller
             'category' => $request->category,
         ]);
 
-        return redirect('/');
+        return redirect('/index');
     }
 
     /**
@@ -131,6 +133,6 @@ class DonutsController extends Controller
             $donut->delete();
         }
 
-        return redirect('/');
+        return redirect('/index');
     }
 }

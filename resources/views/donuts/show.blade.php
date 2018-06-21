@@ -1,22 +1,35 @@
+<head>
+    <style>
+        .content {
+          background-color: pink;
+          margin-left: 30%;
+          margin-right: 30%;
+          padding: 50px;
+        }
+    </style>
+</head>
+<body>
 @extends('layouts.app')
+
 
 @section('content')
 
-<h1>id = {{ $donut->id }} の詳細ページ</h1>
+<div class="content">
+<h1>記事詳細ページ</h1>
 
-    <p>{{ $donut->name }}</p>
-    <p>{{ $donut->title }}</p>
-    <p>{{ $donut->content }}</p>
-    <p>{{ $donut->tag }}</p>
-    <p>{{ $donut->category }}</p>
+    <p>投稿者名☛{{ $donut->name }}</p>
+    <p>タイトル☛{{ $donut->title }}</p>
+    <p>内容☛{{ $donut->content }}</p>
+    <p>タグ☛{{ $donut->tag }}</p>
 
-    {!! link_to_route('donuts.edit', '編集', ['id' => $donut->id]) !!}
+    
 
     @if (Auth::user()->id == $donut->user_id)
     {!! Form::model($donut, ['route' => ['donuts.destroy', $donut->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除') !!}
     {!! Form::close() !!}
     @endif
-    
+</div>    
     
 @endsection
+</body>

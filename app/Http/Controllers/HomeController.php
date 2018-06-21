@@ -32,7 +32,11 @@ class HomeController extends Controller
             $data = [
                 'donuts' => $donuts,
             ];
-        }
-        return view('donuts.index', $data);
+        return view('donuts.index', $data);}
+        
+        else {
+            return view('welcome');
+        } 
+        
     }
 }
